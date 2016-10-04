@@ -7,12 +7,14 @@ if HAVE_INSTALL_TESTS
 bin_PROGRAMS = \
 	etnaviv_2d_test \
 	etnaviv_cmd_stream_test \
-	etnaviv_bo_cache_test
+	etnaviv_bo_cache_test \
+	etnaviv_info
 else
 noinst_PROGRAMS = \
 	etnaviv_2d_test \
 	etnaviv_cmd_stream_test \
-	etnaviv_bo_cache_test
+	etnaviv_bo_cache_test \
+	etnaviv_info
 endif
 
 etnaviv_2d_test_LDADD = \
@@ -39,3 +41,11 @@ etnaviv_bo_cache_test_LDADD = \
 
 etnaviv_bo_cache_test_SOURCES = \
 	etnaviv_bo_cache_test.c
+
+etnaviv_info_LDADD = \
+	$(top_builddir)/libdrm.la \
+	$(top_builddir)/etnaviv/libdrm_etnaviv.la
+
+etnaviv_info_SOURCES = \
+	etnaviv_info.c
+	
